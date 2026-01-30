@@ -78,7 +78,7 @@ services:
 networks:
   backplane:
     name: backplane
-    internal: true
+    internal: false
 
 volumes:
   postgres_data:

@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "infra:up": "docker compose -f docker-compose.infra.yml up -d",
+    "infra:down": "docker compose -f docker-compose.infra.yml down",
+    "apps:up": "docker compose -f docker-compose.apps.yml up -d --build",
+    "apps:down": "docker compose -f docker-compose.apps.yml down",
+    "up": "npm run infra:up && npm run apps:up",
+    "down": "npm run apps:down && npm run infra:down",
+    "logs": "docker logs -f postgres redis kafka auth tickets notifications",
+    "ps": "docker compose -f docker-compose.infra.yml ps && docker compose -f docker-compose.apps.yml ps",
+    "rebuild": "docker compose -f docker-compose.apps.yml up -d --build"
   },
   "keywords": [],
   "author": "",

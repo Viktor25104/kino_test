@@ -1,0 +1,48 @@
+.idea
+.vscode
+.DS_Store
+
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+build
+out
+.next
+.nuxt
+.output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage
+.nyc_output
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Cache
+.cache
+.eslintcache
+.parcel-cache
+.turbo
+.vercel
+.expo
+
+# OS / IDE
+Thumbs.db

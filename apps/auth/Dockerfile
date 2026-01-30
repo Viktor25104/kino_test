@@ -26,4 +26,4 @@ COPY --from=builder /usr/src/app/dist/apps/auth ./dist
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/apps/auth/prisma ./apps/auth/prisma
 
-CMD ["/bin/sh", "-c", "npx prisma migrate deploy --schema apps/auth/prisma/schema.prisma && node dist/main"]
+CMD ["/bin/sh", "-c", "npx prisma db push --schema apps/auth/prisma/schema.prisma && node dist/main"]

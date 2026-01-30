@@ -35,6 +35,8 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=tickets
     ports:
       - "8001:8001"
     networks:

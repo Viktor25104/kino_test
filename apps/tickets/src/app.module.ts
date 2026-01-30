@@ -25,7 +25,7 @@ import { PrismaService } from './infrastructure/prisma/prisma.service';
                 transport: Transport.GRPC,
                 options: {
                     package: 'auth',
-                    protoPath: join(__dirname, 'proto/auth.proto'),
+                    protoPath: join(process.cwd(), 'libs/proto/auth.proto'),
                     url: process.env.AUTH_GRPC_URL || 'auth:50051',
                 },
             },

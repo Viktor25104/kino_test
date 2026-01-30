@@ -12,7 +12,7 @@ COPY nest-cli.json ./
 RUN npm ci
 
 COPY apps/tickets apps/tickets
-# COPY libs libs (if any libs used)
+COPY libs libs
 
 # Generate Prisma Client
 RUN npx prisma generate --schema apps/tickets/prisma/schema.prisma
@@ -28,6 +28,7 @@ WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app/dist/apps/tickets ./dist
 COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY --from=builder /usr/src/app/libs ./libs
 # Copy Prisma schema for migrations
 COPY --from=builder /usr/src/app/apps/tickets/prisma ./apps/tickets/prisma
 

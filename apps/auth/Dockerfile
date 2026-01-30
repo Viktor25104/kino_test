@@ -10,7 +10,7 @@ RUN apt-get update -y && apt-get install -y openssl
 RUN npm ci
 
 COPY apps/auth apps/auth
-# COPY libs libs (if any)
+COPY libs libs
 
 RUN npx prisma generate --schema apps/auth/prisma/schema.prisma
 
@@ -24,6 +24,7 @@ WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app/dist/apps/auth ./dist
 COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY --from=builder /usr/src/app/libs ./libs
 COPY --from=builder /usr/src/app/apps/auth/prisma ./apps/auth/prisma
 
 CMD ["/bin/sh", "-c", "npx prisma db push --schema apps/auth/prisma/schema.prisma && node dist/main"]

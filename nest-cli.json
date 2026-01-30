@@ -28,7 +28,10 @@
             "entryFile": "main",
             "sourceRoot": "apps/tickets/src",
             "compilerOptions": {
-                "tsConfigPath": "apps/tickets/tsconfig.app.json"
+                "tsConfigPath": "apps/tickets/tsconfig.app.json",
+                "assets": [
+                    "**/*.proto"
+                ]
             }
         },
         "notifications": {
